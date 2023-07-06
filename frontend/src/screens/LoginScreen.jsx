@@ -21,7 +21,7 @@ const LoginScreen = () => {
 
     useEffect(() => {
         if(userInfo) {
-            navigate('/profile')
+            navigate('/dashboard')
         }
     }, [navigate, userInfo])
 
@@ -30,7 +30,7 @@ const LoginScreen = () => {
         try {
             const res = await login({ email, password }).unwrap()
             dispatch(setCredentials({ ...res }))
-            navigate('/profile')
+            navigate('/dashboard')
             toast.success('Login successfully')
         } catch (error) {
             // console.log(err?.data?.message || err.error)
